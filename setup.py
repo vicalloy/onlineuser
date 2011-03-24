@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 
-version = '0.8'
+import onlineuser
+version = onlineuser.__version__
 
 LONG_DESCRIPTION = """
 """
