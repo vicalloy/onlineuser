@@ -11,6 +11,9 @@ setup(
     version=version,
     description="A django app to count online users.",
     long_description=LONG_DESCRIPTION,
+    install_requires=[
+        "south>=0.7.2",
+        ],
     classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
