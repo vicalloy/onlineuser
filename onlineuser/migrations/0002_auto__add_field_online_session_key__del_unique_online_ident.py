@@ -14,7 +14,7 @@ class Migration(SchemaMigration):
         db.delete_unique('onlineuser_online', ['ident'])
 
         # Adding field 'Online.session_key'
-        db.add_column('onlineuser_online', 'session_key', self.gf('django.db.models.fields.CharField')(default='', unique=True, max_length=64), keep_default=False)
+        db.add_column('onlineuser_online', 'session_key', self.gf('django.db.models.fields.CharField')(default='', max_length=64), keep_default=False)
 
 
     def backwards(self, orm):
@@ -68,7 +68,7 @@ class Migration(SchemaMigration):
             'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ident': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'session_key': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64'}),
+            'session_key': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
             'updated_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'blank': 'True', 'related_name': "'online'", 'unique': 'True', 'null': 'True', 'to': "orm['auth.User']"})
         }
