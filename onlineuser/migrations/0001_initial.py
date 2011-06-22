@@ -12,7 +12,8 @@ class Migration(SchemaMigration):
         db.create_table('onlineuser_online', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.OneToOneField')(blank=True, related_name='online', unique=True, null=True, to=orm['auth.User'])),
-            ('ident', self.gf('django.db.models.fields.CharField')(unique=True, max_length=200)),
+            ('ident', self.gf('django.db.models.fields.CharField')(max_length=200)),
+            ('session_key', self.gf('django.db.models.fields.CharField')(max_length=64)),
             ('updated_on', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
         ))
@@ -66,7 +67,8 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Online'},
             'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'ident': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
+            'ident': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'session_key': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
             'updated_on': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'blank': 'True', 'related_name': "'online'", 'unique': 'True', 'null': 'True', 'to': "orm['auth.User']"})
         }
