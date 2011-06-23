@@ -1,2 +1,4 @@
 include README
 include LICENSE
+recursive-include onlineuser/locale *
+recursive-include onlineuser/templates *.html
