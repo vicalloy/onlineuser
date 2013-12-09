@@ -3,12 +3,13 @@ from  datetime  import datetime, timedelta
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.utils import timezone
 
 last_online_duration = getattr(settings, 'LAST_ONLINE_DURATION', 900)
 
 class OnlineManager(models.Manager):
     def onlines(self):
-        now = datetime.now()
+        now = timezone.now()
         return Online.objects.filter(\
                 updated_on__gte = now - timedelta(seconds = last_online_duration)\
                 )
@@ -38,7 +39,7 @@ class Online(models.Model):
         return ''
 
     def online(self):
-        now = datetime.now()
+        now = timezone.now()
         if (now - self.updated_on).seconds < last_online_duration:
             return True
         return False   
